@@ -9,22 +9,48 @@
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
     </Filter>
-    <Filter Include="Resource Files">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    <Filter Include="PxPackage">
+      <UniqueIdentifier>{54a606d0-31e1-45df-a501-6060cd8a798f}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="PxPackage.hpp">
+      <Filter>PxPackage</Filter>
+    </ClInclude>
+    <ClInclude Include="PxMappedFile.hpp">
+      <Filter>PxPackage</Filter>
+    </ClInclude>
+    <ClInclude Include="PxPackageSerializer.hpp">
+      <Filter>PxPackage</Filter>
+    </ClInclude>
+    <ClInclude Include="PxPackageArchiver.hpp">
+      <Filter>PxPackage</Filter>
+    </ClInclude>
+    <ClInclude Include="PxPackageStructure.hpp">
+      <Filter>PxPackage</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Archive.cpp">
+    <ClCompile Include="Main.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PxMappedFile.cxx">
+      <Filter>PxPackage</Filter>
+    </ClCompile>
+    <ClCompile Include="PxPackage.cxx">
+      <Filter>PxPackage</Filter>
+    </ClCompile>
+    <ClCompile Include="PxPackageArchiver.cxx">
+      <Filter>PxPackage</Filter>
+    </ClCompile>
+    <ClCompile Include="PxPackageSerializer.cxx">
+      <Filter>PxPackage</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
