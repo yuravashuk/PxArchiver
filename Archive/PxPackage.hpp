@@ -79,6 +79,7 @@ public:
 private:
 	DWORD GetHash(const char *inName) const;
 	void ClearHashTable();
+	void ClearMetaDataPool();
 
 private:
 	THashFunction mHashFunction;

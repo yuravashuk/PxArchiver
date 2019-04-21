@@ -31,6 +31,8 @@ void TestPack()
 		archiver.AddFile(fileName.c_str(), std::string(kRootDir + fileName + ".jpg").c_str());
 	} 
 
+	archiver.AddFile("Track", "E:\\Track 3_002.wav");
+
 	auto package = archiver.GetPackage();
 	auto meta = package->AllocateParameters(kFileNames[0].c_str(), 2);
 	if (meta)
@@ -45,7 +47,6 @@ void TestPack()
 void TestOpen()
 {
 	PxPackage package;
-
 	package.SetHashFunction(kPxJenkinsHashFunction);
 
 	if (!package.Open("output.bin"))
@@ -58,11 +59,11 @@ void TestOpen()
 	for (size_t i = 0; i < _countof(kFileNames); ++i)
 	{
 		const auto fileName = kFileNames[i];
-		fileInfos.push_back
-		(
-			package.GetFileInfo(fileName.c_str()) 
-		);
+		const auto info = package.GetFileInfo(fileName.c_str());
+		fileInfos.push_back(info);
 	}
+
+	fileInfos.push_back(package.GetFileInfo("Track"));
 
 	PxMappedFile outputFile;
 	const std::string outputDir = "E:\\E\\";

@@ -60,7 +60,9 @@ void PxPackage::Save(const std::string &inFileName)
 void PxPackage::Close()
 {
 	mMappedFile.Close();
+
 	ClearHashTable();
+	ClearMetaDataPool();
 }
 
 void PxPackage::SetVersion(DWORD inVersion)
@@ -233,20 +235,45 @@ DWORD PxPackage::GetHash(const char *inName) const
 
 void PxPackage::ClearHashTable()
 {
-	for (DWORD i = 0; i < mNumEntries; ++i)
+	if (mHashTable.Files)
 	{
-		PxPackageFileEntry *node = mHashTable.Files[i];
-
-		while (node)
+		for (DWORD i = 0; i < mNumEntries; ++i)
 		{
-			auto ptr = node;
-			node = node->Next;
-			delete ptr;
+			PxPackageFileEntry *node = mHashTable.Files[i];
+
+			while (node)
+			{
+				auto ptr = node;
+				node = node->Next;
+				delete ptr;
+			}
+
+			mHashTable.Files[i] = nullptr;
 		}
 
-		mHashTable.Files[i] = nullptr;
+		delete[] mHashTable.Files;
+	}
+	
+	mHashTable.Files = nullptr;
+	mHashTable.Files = 0;
+}
+
+void PxPackage::ClearMetaDataPool()
+{
+	if (mMetaDataPool)
+	{
+		for (size_t i = 0; i < mMetaDataChunkOffset; ++i)
+		{
+			if (mMetaDataPool[i].Name)
+			{
+				delete[] mMetaDataPool[i].Name;
+			}
+		}
+
+		delete[] mMetaDataPool;
 	}
 
-	delete[] mHashTable.Files;
-	mHashTable.Files = nullptr;
+	mMetaDataPool = nullptr;
+	mMetaDataChunkOffset = 0;
+	mHashTable.NumMetaData = 0;
 }
