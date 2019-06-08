@@ -86,7 +86,7 @@ void PxMappedFile::SeekTo(size_t inNumBytes)
 	mOverlapped = { 0 };
 }
 
-size_t PxMappedFile::GetFileSize()
+__int64 PxMappedFile::GetFileSize()
 {
 	LARGE_INTEGER fileSize;
 	::GetFileSizeEx(mFileHandle, &fileSize);
@@ -181,15 +181,4 @@ LPVOID PxMappedFile::GetVirtualAddress(size_t inBufferLen)
 	}
 
 	return NULL;
-}
-
-void PxMappedFile::ShiftDataFromAddress(void* inStartPosition, size_t inOffset)
-{
-	auto ptr = (char*)inStartPosition;
-	
-	while (ptr)
-	{
-		*(ptr - inOffset) = *ptr;
-		ptr++;
-	}
 }

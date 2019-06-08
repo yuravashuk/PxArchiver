@@ -127,17 +127,25 @@ namespace PxArchiverApp
         private void FilesList_SelectedIndexChanged(object sender, EventArgs e)
         {
             int index = FilesList.SelectedIndex;
-            languageTextbox.Text = fileInfoes[index].language.ToString();
-            typeTextbox.Text = fileInfoes[index].type.ToString();
-            compressedTextbox.Text = fileInfoes[index].compressed.ToString();
+
+            if (index != -1)
+            {
+                languageTextbox.Text = fileInfoes[index].language.ToString();
+                typeTextbox.Text = fileInfoes[index].type.ToString();
+                compressedTextbox.Text = fileInfoes[index].compressed.ToString();
+            }
         }
 
         private void saveOptionsButton_Click(object sender, EventArgs e)
         {
             int index = FilesList.SelectedIndex;
-            int.TryParse(languageTextbox.Text, out fileInfoes[index].language);
-            int.TryParse(typeTextbox.Text, out fileInfoes[index].type);
-            int.TryParse(compressedTextbox.Text, out fileInfoes[index].compressed);
+
+            if (index != -1)
+            {
+                int.TryParse(languageTextbox.Text, out fileInfoes[index].language);
+                int.TryParse(typeTextbox.Text, out fileInfoes[index].type);
+                int.TryParse(compressedTextbox.Text, out fileInfoes[index].compressed);
+            }
         }
     }
 }

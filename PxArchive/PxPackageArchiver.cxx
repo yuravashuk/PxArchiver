@@ -11,27 +11,35 @@ void PxPackageArchiver::AddFile(const char * inFileName, const char * inFileDire
 {
 	if (mMappedFile.Open(inFileDirection))
 	{
-		size_t fileSize = mMappedFile.GetFileSize();
+		__int64 fileSize = mMappedFile.GetFileSize();
+		size_t uFileSize = static_cast<size_t>(fileSize);
 
-		FileInfo info;
-		info.Data = malloc(fileSize);
-		info.Size = fileSize;
-		mFiles.push_back(info);
+		if (fileSize > 0)
+		{
+			FileInfo info;
+			info.Data = malloc(uFileSize);
+			
+			if (info.Data != nullptr)
+			{
+				info.Size = uFileSize;
+				mFiles.push_back(info);
 
-		memset(info.Data, 0, fileSize);
+				memset(info.Data, 0, uFileSize);
 
-		mMappedFile.SeekTo(0);
-		mMappedFile.Read(info.Data, info.Size);
+				mMappedFile.SeekTo(0);
+				mMappedFile.Read(info.Data, info.Size);
 
-		PxPackageInsertionDescriptor descriptor;
-		descriptor.Address = info.Data;
-		descriptor.FileFormat = inFileFormat;
-		descriptor.FileName = inFileName;
-		descriptor.IsCompressed = 0;
-		descriptor.Language = 0;
-		descriptor.NumBytes = static_cast<DWORD>(info.Size);
+				PxPackageInsertionDescriptor descriptor;
+				descriptor.Address = info.Data;
+				descriptor.FileFormat = inFileFormat;
+				descriptor.FileName = inFileName;
+				descriptor.IsCompressed = 0;
+				descriptor.Language = 0;
+				descriptor.NumBytes = static_cast<DWORD>(info.Size);
 
-		mPackage.Insert(descriptor);
+				mPackage.Insert(descriptor);
+			}
+		}
 	}
 
 	mMappedFile.Close();

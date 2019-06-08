@@ -46,7 +46,7 @@ bool PxPackage::Open(const std::string & inFileName)
 
 void PxPackage::Save(const std::string &inFileName)
 {
-	if (!mMappedFile.Open(inFileName))
+	if (!mMappedFile.Open(inFileName, PxMappedFileMode::CreateUpdate, false))
 	{
 		return;
 	}
