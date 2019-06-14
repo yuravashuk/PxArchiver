@@ -182,14 +182,3 @@ LPVOID PxMappedFile::GetVirtualAddress(size_t inBufferLen)
 
 	return NULL;
 }
-
-void PxMappedFile::ShiftDataFromAddress(void* inStartPosition, size_t inOffset)
-{
-	auto ptr = (char*)inStartPosition;
-	
-	while (ptr)
-	{
-		*(ptr - inOffset) = *ptr;
-		ptr++;
-	}
-}

@@ -147,16 +147,21 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="MappedFile.hpp" />
     <ClInclude Include="PxMappedFile.hpp" />
     <ClInclude Include="PxPackage.hpp" />
+    <ClInclude Include="PxPackageAllocator.hpp" />
+    <ClInclude Include="PxPackageReader.hpp" />
     <ClInclude Include="PxPackageSerializer.hpp" />
     <ClInclude Include="PxPackageStructure.hpp" />
+    <ClInclude Include="PxPackageWriter.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="PxMappedFile.cxx" />
     <ClCompile Include="PxPackage.cxx" />
+    <ClCompile Include="PxPackageAllocator.cxx" />
+    <ClCompile Include="PxPackageReader.cxx" />
     <ClCompile Include="PxPackageSerializer.cxx" />
+    <ClCompile Include="PxPackageWriter.cxx" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

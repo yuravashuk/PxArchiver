@@ -7,9 +7,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="MappedFile.hpp">
-      <Filter>Source Files</Filter>
-    </ClInclude>
     <ClInclude Include="PxMappedFile.hpp">
       <Filter>Source Files</Filter>
     </ClInclude>
@@ -22,6 +19,15 @@
     <ClInclude Include="PxPackageStructure.hpp">
       <Filter>Source Files</Filter>
     </ClInclude>
+    <ClInclude Include="PxPackageReader.hpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PxPackageWriter.hpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PxPackageAllocator.hpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="PxMappedFile.cxx">
@@ -31,6 +37,15 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="PxPackageSerializer.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PxPackageReader.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PxPackageWriter.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PxPackageAllocator.cxx">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

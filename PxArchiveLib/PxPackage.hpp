@@ -11,28 +11,6 @@
 #include "PxPackageSerializer.hpp"
 #include "PxMappedFile.hpp"
 
-using THashFunction = std::function<DWORD(const char *)>;
-
-const auto kPxJenkinsHashFunction = [](const char *inName) {
-	size_t i = 0;
-	size_t length = strlen(inName);
-
-	DWORD hash = 0;
-	
-	while (i != length)
-	{
-		hash += inName[i++];
-		hash += hash << 10;
-		hash ^= hash >> 6;
-	}
-
-	hash += hash << 3;
-	hash ^= hash >> 11;
-	hash += hash << 15;
-
-	return hash;
-};
-
 struct PxPackageInsertionDescriptor
 {
 	const char *FileName;
