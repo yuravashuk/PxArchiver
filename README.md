@@ -1,2 +1,2 @@
 # PxArchiver
-Implementation of basic binary file type
+Implementation of basic binary file format
