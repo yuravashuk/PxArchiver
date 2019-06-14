@@ -18,6 +18,7 @@ class PxMappedFile;
  */
 struct PxPackageSerializerDelegate
 {
+	
 	virtual ~PxPackageSerializerDelegate() = default;
 
 	/*!

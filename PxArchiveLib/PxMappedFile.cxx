@@ -86,7 +86,7 @@ void PxMappedFile::SeekTo(size_t inNumBytes)
 	mOverlapped = { 0 };
 }
 
-size_t PxMappedFile::GetFileSize()
+__int64 PxMappedFile::GetFileSize()
 {
 	LARGE_INTEGER fileSize;
 	::GetFileSizeEx(mFileHandle, &fileSize);
